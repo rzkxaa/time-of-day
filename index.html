@@ -17,7 +17,7 @@
 			min-height:100%; /* keeps from getting too large on wide screen */
 			}
 		img.flexible {
-			float:right;
+			float: right;
 			display:inline-block;
 			padding:20px;
 			max-width:300px; /* actual size of image */
@@ -69,47 +69,51 @@
 		</nav>
 	</header>
     <main>
-	 <header><h3>An IT 121 assignment by Rizkika Ramadhanti</h3></header>
+	 <header><h3>An IT 121 assignment by AZ Dela Cuesta</h3></header>
 	 <div id="mydiv">Greeting goes here</div>
 	 <p>This HTML5 Flexible template could be a good starting point for some of your projects.  The template file starts by setting a background color on the HTML element, and setting max-width on the body, which is styled like a wrapper.  The BODY element is also set to a percentage width so it leaves a bit of HTML color until it shrinks in size toward the mobile view.</p>
 	 <p>There is an image with a class of FLEXIBLE which is set to a max-width equal to the size of the image.  Simutaneously the class sets the image to a percentage width, allowing the image to flex in size.  The height is not changed, as this would skew the image.</p>
 	 <p>The LIST elements inside the NAV are displayed inline by setting the display to be inline-block.  Bullets are removed by setting the UL to display</p>
 	 <p>The FOOTER includes a clear:both to keep everything above it!</p>
-	  <img src="images/afternoon.jpg" alt="Time of day pic" id="mypic" class="flexible" />
+	 <img alt="Picture of Me!" class="flexible" id="image"/>
      </main>
     <footer>
-      <small>&copy; 2013, All Rights Reserved ~
+      <small><div id="footer">&copy; 2013, All Rights Reserved ~</div>
       <a href="https://validator.w3.org/check/referer" target="_blank">Valid HTML</a> ~
       <a href="https://jigsaw.w3.org/css-validator/check?uri=referer" target="_blank">Valid CSS</a>
       </small>
     </footer>
 	<!-- END Footer -->
-	<script>let myDate = new Date();
-		let myHour = myDate.getHours();
-		let myGreeting ="";
-		let myColor = "";
-		let myPic = "images/";
-		
-//TEST ONLY - REMOVE THIS
-		myHour = 9;
+<script>
+let myDate = new Date();
+let myHour = myDate.getHours();
+let myYear = myDate.getFullYear();
+let myGreeting ="";
+let myColor = "";
+let img = "images/";
 
-		if(myHour >= 5 && myHour <12){
-			myGreeting = "Good Morning?";
-			myColor = "yellow";
-			myPic += "morning.jpg";
+if (myHour < 12 && myHour >= 5) {
+  	myGreeting = "Good Morning!";
+	myColor = "yellow";
+	img += "morning.jpg"; 
+} else if (myHour > 12 && myHour <= 18) {
+  	myGreeting = "Afternoon!";
+	myColor = "orange";
+	img += "afternoon.jpg";  
+} else if (myHour > 18 && myHour <= 23) {
+	myGreeting = "Good Evening!";
+	myColor = "blue";
+	img += "evening.jpg";
+} else {
+	myGreeting = "Goodnight!";
+	myColor = "purple";
+	img += "night.jpg";
+}
 
-		} else if (myHour >= 12 && myHour <18) {
-			myGreeting = "Good Afternoon?";
-			myColor = "orange";
-			myPic += "afternoon.jpg";
-
-		}else{
-    		alert('NOT morning');
-		}
-
-		document.getElementById("mydiv").innerHTML = myGreeting;
-		document.body.style.backgroundColor = myColor;
-		document.getElementById("mypic").src = myPic;
-	</script>
+document.getElementById("image").src = img;
+document.getElementById("mydiv").innerHTML = myGreeting;
+document.getElementById("footer").innerHTML = myYear;
+document.body.style.backgroundColor = myColor;
+</script>
 </body>
 </html>
